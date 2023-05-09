@@ -1,6 +1,7 @@
 import { Team } from "./team";
 
 interface SoccerGameAttributes {
+    id?: number;
     team1: Team;
     team2: Team;
     score1: number;
@@ -13,6 +14,7 @@ interface SoccerGameAttributes {
 }
 
 export class SoccerGame {
+    private readonly _id!: number;
     public team1!: Team;
     public team2!: Team;
     public score1!: number;
@@ -23,7 +25,12 @@ export class SoccerGame {
     public odd2!: number;
     public done!: boolean;
 
-    constructor(props: SoccerGameAttributes) {
+    get id() {
+        return this._id
+    }
+
+    constructor(props: SoccerGameAttributes, id?: number) {
+        this._id = id ?? Math.random()
         Object.assign(this, props)
     }
 }

@@ -4,8 +4,8 @@ import { DeleteTeamUseCase } from "./DeleteTeamUseCase";
 
 const repository = new inMemoryTeamsRepository()
 
-const deleteTeamUseCase = new DeleteTeamUseCase(repository)
+const useCase = new DeleteTeamUseCase(repository)
 
-const deleteTeamController = new DeleteTeamController(deleteTeamUseCase)
+const controller = new DeleteTeamController(useCase)
 
-export { deleteTeamController, deleteTeamUseCase }
+export { controller, useCase }

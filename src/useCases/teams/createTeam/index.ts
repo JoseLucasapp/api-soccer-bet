@@ -4,8 +4,8 @@ import { CreateTeamUseCase } from "./CreateTeamUseCase";
 
 const repository = new inMemoryTeamsRepository()
 
-const createTeamUseCase = new CreateTeamUseCase(repository)
+const useCase = new CreateTeamUseCase(repository)
 
-const createTeamController = new CreateTeamController(createTeamUseCase)
+const controller = new CreateTeamController(useCase)
 
-export { createTeamController, createTeamUseCase }
+export { controller, useCase }

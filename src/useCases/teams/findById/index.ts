@@ -4,8 +4,8 @@ import { FindByIdUseCase } from "./FindByIdUseCase"
 
 const repository = new inMemoryTeamsRepository()
 
-const findByIdUseCase = new FindByIdUseCase(repository)
+const useCase = new FindByIdUseCase(repository)
 
-const findByIdController = new FindByIdController(findByIdUseCase)
+const controller = new FindByIdController(useCase)
 
-export { findByIdController, findByIdUseCase }
+export { controller, useCase }

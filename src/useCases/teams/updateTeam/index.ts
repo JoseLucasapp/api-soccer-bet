@@ -3,7 +3,7 @@ import { UpdateTeamController } from "./UpdateTeamController";
 import { UpdateTeamUseCase } from "./UpdateTeamUseCase";
 
 const repository = new inMemoryTeamsRepository()
-const updateTeamUseCase = new UpdateTeamUseCase(repository)
-const updateTeamController = new UpdateTeamController(updateTeamUseCase)
+const useCase = new UpdateTeamUseCase(repository)
+const controller = new UpdateTeamController(useCase)
 
-export { updateTeamController, updateTeamUseCase }
+export { controller, useCase }
