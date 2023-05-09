@@ -1,6 +1,10 @@
 import express from 'express'
 
 import { router } from './routes'
+import db from './database/connection'
+
+db.authenticate()
+db.sync().then(() => console.log('Connected'))
 
 const app = express()
 
