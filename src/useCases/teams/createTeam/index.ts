@@ -6,6 +6,6 @@ const repository = new inMemoryTeamsRepository()
 
 const useCase = new CreateTeamUseCase(repository)
 
-const controller = new CreateTeamController(useCase)
+const controllerCreateTeam = new CreateTeamController(useCase)
 
-export { controller, useCase }
+export { controllerCreateTeam, useCase }

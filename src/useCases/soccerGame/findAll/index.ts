@@ -6,6 +6,6 @@ const repository = new inMemorySoccerGameRepository()
 
 const useCase = new FindAllUseCase(repository)
 
-const controller = new FindAllController(useCase)
+const controllerFindAllSoccerGame = new FindAllController(useCase)
 
-export { controller, useCase }
+export { controllerFindAllSoccerGame, useCase }

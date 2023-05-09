@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { UpdateSoccerGameUseCase } from "./UpdateSoccerGameUseCase";
 
-export class UpdateTeamController {
+export class UpdateSoccerGameController {
     constructor(private updateSoccerGameUseCase: UpdateSoccerGameUseCase) { }
 
     async handle(request: Request, response: Response): Promise<Response> {

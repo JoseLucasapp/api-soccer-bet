@@ -6,6 +6,6 @@ const repository = new inMemoryTeamsRepository()
 
 const useCase = new FindByIdUseCase(repository)
 
-const controller = new FindByIdController(useCase)
+const controllerFindByIdTeam = new FindByIdController(useCase)
 
-export { controller, useCase }
+export { controllerFindByIdTeam, useCase }

@@ -6,6 +6,6 @@ const repository = new inMemorySoccerGameRepository()
 
 const useCase = new CreateSoccerGameUseCase(repository)
 
-const controller = new CreateSoccerGameController(useCase)
+const controllerCreateSoccerGame = new CreateSoccerGameController(useCase)
 
-export { controller, useCase }
+export { controllerCreateSoccerGame, useCase }

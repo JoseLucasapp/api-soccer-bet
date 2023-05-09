@@ -6,6 +6,6 @@ const repository = new inMemoryTeamsRepository()
 
 const useCase = new DeleteTeamUseCase(repository)
 
-const controller = new DeleteTeamController(useCase)
+const controllerDeleteTeam = new DeleteTeamController(useCase)
 
-export { controller, useCase }
+export { controllerDeleteTeam, useCase }
