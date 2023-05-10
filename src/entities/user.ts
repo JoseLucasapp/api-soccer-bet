@@ -3,8 +3,8 @@ interface UserAttributes {
     username: string;
     password: string;
     email: string;
-    points: number;
-    wins: number;
+    points?: number;
+    wins?: number;
 }
 
 export class User {
@@ -20,6 +20,8 @@ export class User {
     }
     constructor(props: UserAttributes, id?: number) {
         this._id = id ?? Math.random()
+        this.points = 0
+        this.wins = 0
         Object.assign(this, props)
     }
 }

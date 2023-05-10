@@ -5,4 +5,5 @@ export interface IUserRepository {
     save(data: User): Promise<void>
     deleteUser(id: number): Promise<void>
     updateUser(id: number, data: User): Promise<void>
+    findAll(): Promise<User[]>
 }

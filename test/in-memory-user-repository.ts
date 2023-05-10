@@ -27,4 +27,8 @@ export class inMemoryUserRepository implements IUserRepository {
         const position = this.users.indexOf(user as User)
         this.users[position] = data
     }
+
+    async findAll(): Promise<User[]> {
+        return this.users
+    }
 }
