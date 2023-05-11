@@ -1,4 +1,6 @@
 interface ICreateTeamAttributesRequestDTO {
     name: string;
-    logo: string;
+    color1: string;
+    color2: string;
+    power: number;
 }
