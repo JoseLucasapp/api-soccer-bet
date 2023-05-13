@@ -16,6 +16,5 @@ export enum MessageTextOptions {
 export interface AuthInterface {
     id: number
     email: string
-    name: string
-    role: UserTypeEnum
+    username: string
 }

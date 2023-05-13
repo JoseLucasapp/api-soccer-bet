@@ -4,8 +4,14 @@ import { controllerFindAllUser } from "../../useCases/user/findAll";
 import { controllerFindByIdUser } from "../../useCases/user/findById";
 import { controllerUpdateUser } from "../../useCases/user/updateUser";
 import { controllerDeleteUser } from "../../useCases/user/deleteUser";
+import { controllerLogin } from "../../useCases/user/login";
 
 export default (router: Router) => {
+
+    router.post('/login', (request: Request, response: Response) => {
+        return controllerLogin.handle(request, response)
+    })
+
     router.post('/user', (request: Request, response: Response) => {
         return controllerCreateUser.handle(request, response)
     })
