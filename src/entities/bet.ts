@@ -1,4 +1,7 @@
+import { Model } from "sequelize-typescript";
 import { SoccerGame } from "./soccerGame";
+import db from "../db/connection";
+import { DataTypes } from "sequelize";
 
 interface BetAttributes {
     id?: number;
@@ -12,7 +15,7 @@ interface BetAttributes {
     done: boolean;
 }
 
-export class Bet {
+/*export class Bet {
     private readonly _id!: number;
     public game_id!: number;
     public user_id!: number;
@@ -32,4 +35,30 @@ export class Bet {
         Object.assign(this, props)
 
     }
+}*/
+
+export class Bet extends Model<BetAttributes>{
+    [x: string]: any;
 }
+
+Bet.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+        },
+        game_id: DataTypes.INTEGER,
+        user_id: DataTypes.INTEGER,
+        bets: DataTypes.ARRAY,
+        betOdd: DataTypes.FLOAT,
+        total_stake: DataTypes.FLOAT,
+        potential_return: DataTypes.FLOAT,
+        winner: DataTypes.INTEGER,
+        done: DataTypes.BOOLEAN
+    }, {
+    sequelize: db,
+    tableName: 'bets'
+}
+)

@@ -17,4 +17,5 @@ export interface AuthInterface {
     id: number
     email: string
     username: string
+    role: UserTypeEnum
 }

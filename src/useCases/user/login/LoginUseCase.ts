@@ -1,5 +1,6 @@
 import { User } from "../../../entities/user";
 import { generateToken } from "../../../helpers/jwt";
+import { UserTypeEnum } from "../../../helpers/types";
 import { IUserRepository } from "../../../repositories/IUserRepository";
 
 export class LoginUseCase {
@@ -19,7 +20,8 @@ export class LoginUseCase {
         const token = await generateToken({
             id: user[0].id,
             email: user[0].email,
-            username: user[0].username
+            username: user[0].username,
+            role: user[0].role as UserTypeEnum
         })
 
         return { user, token }

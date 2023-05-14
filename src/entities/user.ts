@@ -1,3 +1,5 @@
+import { UserTypeEnum } from "../helpers/types";
+
 interface UserAttributes {
     id?: number;
     username: string;
@@ -5,6 +7,7 @@ interface UserAttributes {
     email: string;
     points?: number;
     wins?: number;
+    role: UserTypeEnum;
 }
 
 export class User {
@@ -14,6 +17,7 @@ export class User {
     public email!: string;
     public points!: number;
     public wins!: number;
+    public role!: string;
 
     get id() {
         return this._id
