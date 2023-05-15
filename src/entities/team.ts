@@ -1,3 +1,6 @@
+import { DataTypes, Model } from "sequelize";
+import db from "../db/connection";
+
 interface TeamAttributes {
     id?: number;
     name: string;
@@ -9,7 +12,7 @@ interface TeamAttributes {
     power: number;
 }
 
-export class Team {
+/*export class Team {
     private readonly _id!: number;
     public name!: string;
     public color1!: string;
@@ -30,4 +33,29 @@ export class Team {
         this.x = 0
         Object.assign(this, props)
     }
+}*/
+
+export class Team extends Model<TeamAttributes>{
+    [x: string]: any;
 }
+
+Team.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+        },
+        name: DataTypes.CHAR(150),
+        color1: DataTypes.CHAR(150),
+        color2: DataTypes.CHAR(150),
+        w: DataTypes.INTEGER,
+        x: DataTypes.INTEGER,
+        l: DataTypes.INTEGER,
+        power: DataTypes.INTEGER
+    }, {
+    sequelize: db,
+    tableName: 'teams'
+}
+)

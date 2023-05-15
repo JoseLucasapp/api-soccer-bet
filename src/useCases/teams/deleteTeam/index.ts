@@ -1,8 +1,9 @@
 import { inMemoryTeamsRepository } from "../../../../test/in-memory-teams-repository";
+import { PostgresTeamsRepository } from "../../../db/implementations/PostgresTeamRepository";
 import { DeleteTeamController } from "./DeleteTeamController";
 import { DeleteTeamUseCase } from "./DeleteTeamUseCase";
 
-const repository = new inMemoryTeamsRepository()
+const repository = new PostgresTeamsRepository()
 
 const useCase = new DeleteTeamUseCase(repository)
 

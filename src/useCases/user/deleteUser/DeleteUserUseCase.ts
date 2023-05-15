@@ -1,7 +1,7 @@
-import { inMemoryUserRepository } from "../../../../test/in-memory-user-repository";
+import { IUserRepository } from "../../../repositories/IUserRepository";
 
 export class DeleteUserUseCase {
-    constructor(private userRepository: inMemoryUserRepository) { }
+    constructor(private userRepository: IUserRepository) { }
 
     async execute(id: number) {
         return await this.userRepository.deleteUser(id)

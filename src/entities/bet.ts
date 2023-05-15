@@ -2,6 +2,7 @@ import { Model } from "sequelize-typescript";
 import { SoccerGame } from "./soccerGame";
 import db from "../db/connection";
 import { DataTypes } from "sequelize";
+import { User } from "./user";
 
 interface BetAttributes {
     id?: number;
@@ -49,8 +50,20 @@ Bet.init(
             allowNull: false,
             autoIncrement: true,
         },
-        game_id: DataTypes.INTEGER,
-        user_id: DataTypes.INTEGER,
+        game_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'soccergames',
+                key: 'id'
+            },
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id'
+            },
+        },
         bets: DataTypes.ARRAY,
         betOdd: DataTypes.FLOAT,
         total_stake: DataTypes.FLOAT,
@@ -62,3 +75,6 @@ Bet.init(
     tableName: 'bets'
 }
 )
+
+Bet.hasMany(SoccerGame)
+Bet.hasMany(User)

@@ -1,7 +1,7 @@
-import { inMemoryBetRepository } from "../../../../test/in-memory-bet-repository";
+import { IBetRepository } from "../../../repositories/IBetRepository";
 
 export class DeleteBetUseCase {
-    constructor(private betRepository: inMemoryBetRepository) { }
+    constructor(private betRepository: IBetRepository) { }
 
     async execute(id: number) {
         return await this.betRepository.deleteBet(id)

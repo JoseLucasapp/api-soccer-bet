@@ -1,8 +1,9 @@
 import { inMemoryTeamsRepository } from "../../../../test/in-memory-teams-repository";
+import { PostgresTeamsRepository } from "../../../db/implementations/PostgresTeamRepository";
 import { CreateTeamController } from "./CreateTeamController";
 import { CreateTeamUseCase } from "./CreateTeamUseCase";
 
-const repository = new inMemoryTeamsRepository()
+const repository = new PostgresTeamsRepository()
 
 const useCase = new CreateTeamUseCase(repository)
 
