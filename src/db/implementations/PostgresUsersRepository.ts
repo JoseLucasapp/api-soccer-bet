@@ -1,4 +1,5 @@
 import { User } from "../../entities/user";
+import { createHashData } from "../../helpers/utils";
 import { IUserRepository } from "../../repositories/IUserRepository";
 
 export class PostgresUsersRepository implements IUserRepository {
@@ -11,7 +12,8 @@ export class PostgresUsersRepository implements IUserRepository {
     }
 
     async save(data: User): Promise<void> {
-        await User.create({ ...data.dataValues })
+        const pass = createHashData(data.dataValues.password)
+        await User.create({ ...data.dataValues, password: pass })
     }
 
     async updateUser(id: number, data: User): Promise<void> {

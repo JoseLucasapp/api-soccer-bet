@@ -6,7 +6,7 @@ export class FindAllController {
 
     async handle(request: Request, response: Response): Promise<Response> {
         try {
-            const user = await this.findAllUseCase.execute()
+            const user = await this.findAllUseCase.execute(request.params)
             return response.status(200).json(user)
         } catch (error) {
             return response.status(500).json({
