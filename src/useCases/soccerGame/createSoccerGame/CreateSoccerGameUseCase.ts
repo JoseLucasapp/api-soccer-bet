@@ -22,8 +22,12 @@ export class CreateSoccerGameUseCase {
         const randomTeam1Id = randomNum(10)
         let randomTeam2Id = randomNum(10)
 
-        while (randomTeam2Id === randomTeam1Id) {
+        while (randomTeam2Id == randomTeam1Id) {
             randomTeam2Id = randomNum(10)
+            if (randomTeam1Id != randomTeam2Id) {
+                break
+            }
+
         }
 
         const team1 = await this.teamsRepository.findById(randomTeam1Id)
