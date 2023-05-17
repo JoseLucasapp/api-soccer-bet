@@ -1,5 +1,6 @@
 import jwt, { SignOptions } from 'jsonwebtoken'
 import { AuthInterface } from './types'
+import 'dotenv/config'
 
 const jwtSecret: string = (process.env.SECRET_KEY as string);
 

@@ -3,7 +3,11 @@ import { createHashData } from "../../helpers/utils";
 import { IUserRepository } from "../../repositories/IUserRepository";
 
 export class PostgresUsersRepository implements IUserRepository {
-    async findAll(query: any): Promise<User[]> {
+    private users: User[] = []
+    constructor() {
+
+    }
+    async find(query: any): Promise<User[]> {
         return await User.findAll({ where: query })
     }
 
@@ -12,12 +16,13 @@ export class PostgresUsersRepository implements IUserRepository {
     }
 
     async save(data: User): Promise<void> {
-        const pass = createHashData(data.dataValues.password)
+        const pass = await createHashData(data.dataValues.password)
         await User.create({ ...data.dataValues, password: pass })
     }
 
     async updateUser(id: number, data: User): Promise<void> {
-        await User.update({ ...data.dataValues }, { where: { id: id } })
+        const user = await this.findById(id)
+        await User.update({ username: data.username || user?.username }, { where: { id: id } })
     }
 
     async deleteUser(id: number): Promise<void> {

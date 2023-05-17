@@ -19,3 +19,8 @@ export interface AuthInterface {
     username: string
     role: UserTypeEnum
 }
+
+export interface FindAllQueryInterface {
+    email?: string
+    username?: string
+}

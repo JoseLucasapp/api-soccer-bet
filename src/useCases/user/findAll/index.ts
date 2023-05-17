@@ -1,7 +1,7 @@
 import { inMemoryUserRepository } from "../../../../test/in-memory-user-repository"
 import { PostgresUsersRepository } from "../../../db/implementations/PostgresUsersRepository"
-import { FindAllController } from "./FindAllController"
-import { FindAllUseCase } from "./FindAllUseCase"
+import { FindAllController } from "./FindAllUsersController"
+import { FindAllUseCase } from "./FindAllUsersUseCase"
 
 const repository = new PostgresUsersRepository()
 

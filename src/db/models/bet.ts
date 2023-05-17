@@ -1,8 +1,8 @@
 import { Model } from "sequelize-typescript";
-import { SoccerGame } from "./soccerGame";
-import db from "../db/connection";
+import { SoccerGameModel } from "./soccerGame";
+import db from "../../db/connection";
 import { DataTypes } from "sequelize";
-import { User } from "./user";
+import { UserModel } from "./user";
 
 interface BetAttributes {
     id?: number;
@@ -15,11 +15,11 @@ interface BetAttributes {
     done: boolean;
 }
 
-export class Bet extends Model<BetAttributes>{
+export class BetModel extends Model<BetAttributes>{
     [x: string]: any;
 }
 
-Bet.init(
+BetModel.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -52,5 +52,5 @@ Bet.init(
 }
 )
 
-Bet.hasMany(SoccerGame)
-Bet.hasMany(User)
+BetModel.hasMany(SoccerGameModel)
+BetModel.hasMany(UserModel)

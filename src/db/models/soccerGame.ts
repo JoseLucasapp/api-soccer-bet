@@ -1,25 +1,25 @@
 import { DataTypes, Model } from "sequelize";
-import { Team } from "./team";
-import db from "../db/connection";
+import { TeamModel } from "./team";
+import db from "../../db/connection";
 
 interface SoccerGameAttributes {
     id?: number;
-    team1: Team;
-    team2: Team;
+    team1: TeamModel;
+    team2: TeamModel;
     score1: number;
     score2: number;
-    winner: Team;
+    winner: TeamModel;
     odd1: number;
     oddx: number;
     odd2: number;
     done: boolean;
 }
 
-export class SoccerGame extends Model<SoccerGameAttributes>{
+export class SoccerGameModel extends Model<SoccerGameAttributes>{
     [x: string]: any;
 }
 
-SoccerGame.init(
+SoccerGameModel.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -60,4 +60,4 @@ SoccerGame.init(
 }
 )
 
-SoccerGame.hasMany(Team)
+SoccerGameModel.hasMany(TeamModel)

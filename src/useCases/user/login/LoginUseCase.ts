@@ -8,15 +8,15 @@ export class LoginUseCase {
     constructor(private userRepository: IUserRepository) { }
 
     async execute(data: User) {
-        const pass = createHashData(data.dataValues.password)
-        const user = await this.userRepository.findAll(`email = ${data.dataValues.email} and password = ${pass}`)
+        const pass = await createHashData(data.password)
+        const user = await this.userRepository.find({ email: data.email, password: pass })
 
         if (user.length <= 0) {
-            const userPass = await this.userRepository.findAll(`email = ${data.dataValues.email}`)
+            const userPass = await this.userRepository.find({ email: data.email })
             if (userPass) {
-                throw new Error('Incorrect password')
+                return 'Incorrect password'
             }
-            throw new Error('Not found')
+            return 'Not found'
         }
 
         const token = await generateToken({

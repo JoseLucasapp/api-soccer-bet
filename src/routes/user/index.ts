@@ -13,16 +13,22 @@ export default (router: Router) => {
     router.post('/login', (request: Request, response: Response) => {
         return controllerLogin.handle(request, response)
     })
-
-    router.get('/user', [(request: Request, response: Response, next: NextFunction) => validadeJwt(request, response, next, [UserTypeEnum.USER])], controllerFindAllUser.handle)
+    router.get('/user', [(request: Request, response: Response, next: NextFunction) => validadeJwt(request, response, next, [UserTypeEnum.USER])], (request: Request, response: Response) => {
+        return controllerFindAllUser.handle(request, response)
+    })
+    router.get('/user/:id', [(request: Request, response: Response, next: NextFunction) => validadeJwt(request, response, next, [UserTypeEnum.USER])], (request: Request, response: Response) => {
+        return controllerFindByIdUser.handle(request, response)
+    })
 
     router.post('/user', (request: Request, response: Response) => {
         return controllerCreateUser.handle(request, response)
     })
 
-    router.get('/user/:id', [(request: Request, response: Response, next: NextFunction) => validadeJwt(request, response, next, [UserTypeEnum.USER])], controllerFindByIdUser.handle)
+    router.put('/user/:id', (request: Request, response: Response) => {
+        return controllerUpdateUser.handle(request, response)
+    })
+    router.delete('/user/:id', (request: Request, response: Response) => {
+        return controllerDeleteUser.handle(request, response)
+    })
 
-    router.put('/user/:id', [(request: Request, response: Response, next: NextFunction) => validadeJwt(request, response, next, [UserTypeEnum.USER])], controllerUpdateUser.handle)
-
-    router.delete('/user/:id', [(request: Request, response: Response, next: NextFunction) => validadeJwt(request, response, next, [UserTypeEnum.USER])], controllerDeleteUser.handle)
 }
