@@ -28,7 +28,7 @@ export class inMemoryUserRepository implements IUserRepository {
         this.users[position] = data
     }
 
-    async findAll(query: string): Promise<User[]> {
+    async find(query: string): Promise<User[]> {
         return this.users
     }
 }

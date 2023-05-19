@@ -1,7 +1,6 @@
-import { Model } from "sequelize-typescript";
+import { Model, DataTypes } from "sequelize";
 import { SoccerGame } from "./soccerGame";
 import db from "../db/connection";
-import { DataTypes } from "sequelize";
 import { User } from "./user";
 
 interface BetAttributes {

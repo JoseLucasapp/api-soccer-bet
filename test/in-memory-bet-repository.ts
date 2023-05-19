@@ -15,12 +15,8 @@ export class inMemoryBetRepository implements IBetRepository {
 
         return bet
     }
-    async findByUserId(userId: number): Promise<Bet | null> {
-        const bet = this.bets.find(b => b.user_id === userId)
-
-        if (!bet) return null
-
-        return bet
+    async findByUserId(userId: number): Promise<Bet[]> {
+        return this.bets
     }
 
     async findAll(): Promise<Bet[]> {

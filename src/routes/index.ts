@@ -9,6 +9,6 @@ const router = Router()
 soccerGame(router)
 teams(router)
 user(router)
-//bet(router)
+bet(router)
 
 export { router }
